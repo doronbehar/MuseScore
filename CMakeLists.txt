@@ -123,6 +123,7 @@ option(MUE_COMPILE_USE_UNITY "Use unity build." ON)
 option(MUE_COMPILE_USE_CCACHE "Try use ccache" ON)
 option(MUE_COMPILE_USE_SHARED_LIBS_IN_DEBUG "Build shared libs if possible in debug" OFF)
 option(MUE_COMPILE_USE_SYSTEM_FREETYPE "Try use system freetype" OFF) # Important for the maintainer of Linux distributions
+option(MUE_COMPILE_USE_SYSTEM_GTEST "Try use system googletest" OFF) # Important for the maintainer of Linux distributions
 
 # === Debug ===
 option(MUE_ENABLE_LOGGER_DEBUGLEVEL "Enable logging debug level" ON)
@@ -184,7 +185,18 @@ if (MUE_BUILD_UNIT_TESTS)
         FULL_DOCS "List XML files outputted by google test."
     )
 
-    add_subdirectory(thirdparty/googletest)
+    if (MUE_COMPILE_USE_SYSTEM_GTEST)
+        find_package(GTest REQUIRED)
+        if (GTEST_FOUND)
+            message(STATUS "Found system GTest: ${GTEST_VERSION_STRING}")
+        else()
+            message(FATAL_ERROR "Set MUE_COMPILE_USE_SYSTEM_GTEST=ON, but system googletest not found")
+        endif()
+        set(GMOCK_LINK_LIB, "GTest::gmock")
+    else()
+        add_subdirectory(thirdparty/googletest)
+        set(GMOCK_LINK_LIB, "gmock")
+    endif()
 endif(MUE_BUILD_UNIT_TESTS)
 
 add_subdirectory(share)

@@ -60,7 +60,7 @@ find_package(Qt5 COMPONENTS Core Gui REQUIRED)
 target_link_libraries(${MODULE_TEST}
     Qt5::Core
     Qt5::Gui
-    gmock
+    ${GMOCK_LINK_LIB}
     global
     ${MODULE_TEST_LINK}
     )
