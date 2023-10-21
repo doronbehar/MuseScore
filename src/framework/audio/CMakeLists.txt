@@ -268,13 +268,25 @@ if (MUE_ENABLE_AUDIO_EXPORT)
         ${CMAKE_CURRENT_LIST_DIR}/internal/soundtracks/soundtrackwriter.h
         )
 
-    add_subdirectory(${PROJECT_SOURCE_DIR}/thirdparty/lame lame)
+    if (MUE_COMPILE_USE_SYSTEM_LAME)
+        pkg_check_modules(lame REQUIRED IMPORTED_TARGET lame)
+        set(MODULE_LINK
+            ${MODULE_LINK}
+            PkgConfig::lame
+        )
+        set(MODULE_DEF "SYSTEM_LAME")
+    else()
+        add_subdirectory(${PROJECT_SOURCE_DIR}/thirdparty/lame lame)
+        set(MODULE_LINK
+            ${MODULE_LINK}
+            lame
+        )
+    endif()
     add_subdirectory(${PROJECT_SOURCE_DIR}/thirdparty/opusenc opusenc)
     add_subdirectory(${PROJECT_SOURCE_DIR}/thirdparty/flac flac)
 
     set(MODULE_LINK
         ${MODULE_LINK}
-        lame
         opusenc
         flac
     )

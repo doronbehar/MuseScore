@@ -22,7 +22,11 @@
 
 #include "mp3encoder.h"
 
+#ifdef SYSTEM_LAME
+#include "lame/lame.h"
+#else
 #include "lame.h"
+#endif
 
 using namespace mu;
 using namespace mu::audio;
