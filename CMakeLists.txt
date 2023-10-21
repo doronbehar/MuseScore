@@ -126,6 +126,7 @@ option(MUE_COMPILE_USE_SYSTEM_FREETYPE "Try use system freetype" OFF) # Importan
 option(MUE_COMPILE_USE_SYSTEM_GTEST "Try use system googletest" OFF) # Important for the maintainer of Linux distributions
 option(MUE_COMPILE_USE_SYSTEM_TINYXML "Try use system tinyxml" OFF) # Important for the maintainer of Linux distributions
 option(MUE_COMPILE_USE_SYSTEM_LAME "Try use system lame" OFF) # Important for the maintainer of Linux distributions
+option(MUE_COMPILE_USE_SYSTEM_OPUSENC "Try use system libopusenc" OFF) # Important for the maintainer of Linux distributions
 
 # === Debug ===
 option(MUE_ENABLE_LOGGER_DEBUGLEVEL "Enable logging debug level" ON)

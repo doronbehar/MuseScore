@@ -282,12 +282,24 @@ if (MUE_ENABLE_AUDIO_EXPORT)
             lame
         )
     endif()
-    add_subdirectory(${PROJECT_SOURCE_DIR}/thirdparty/opusenc opusenc)
+    if (MUE_COMPILE_USE_SYSTEM_OPUSENC)
+        pkg_check_modules(libopusenc REQUIRED IMPORTED_TARGET libopusenc)
+        set(MODULE_LINK
+            ${MODULE_LINK}
+            PkgConfig::libopusenc
+        )
+        set(MODULE_DEF "SYSTEM_OPUSENC")
+    else()
+        add_subdirectory(${PROJECT_SOURCE_DIR}/thirdparty/opusenc opusenc)
+        set(MODULE_LINK
+            ${MODULE_LINK}
+            libopusenc
+        )
+    endif()
     add_subdirectory(${PROJECT_SOURCE_DIR}/thirdparty/flac flac)
 
     set(MODULE_LINK
         ${MODULE_LINK}
-        opusenc
         flac
     )
 endif()
