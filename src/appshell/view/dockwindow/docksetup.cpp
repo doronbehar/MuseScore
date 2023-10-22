@@ -40,10 +40,17 @@
 
 #include "docktypes.h"
 
+#ifdef SYSTEM_KDDOCKWIDGETS
+#include <kddockwidgets/Config.h>
+#include <kddockwidgets/DockWidgetBase.h>
+#include <kddockwidgets/FrameworkWidgetFactory.h>
+#include <kddockwidgets/private/FloatingWindow_p.h>
+#else
 #include "thirdparty/KDDockWidgets/src/Config.h"
 #include "thirdparty/KDDockWidgets/src/DockWidgetBase.h"
 #include "thirdparty/KDDockWidgets/src/FrameworkWidgetFactory.h"
 #include "thirdparty/KDDockWidgets/src/private/FloatingWindow_p.h"
+#endif
 
 #include <QQmlEngine>
 

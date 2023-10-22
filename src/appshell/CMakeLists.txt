@@ -115,6 +115,14 @@ set(MODULE_LINK
     ui
     ${DOCK_LIBS}
     )
+set(MODULE_DEF
+    ${MODULE_DEF}
+    ${DOCK_DEFS}
+    )
+set(MODULE_INCLUDE
+    ${MODULE_INCLUDE}
+    ${DOCK_INCLUDES}
+    )
 
 if (OS_IS_MAC)
     set(MODULE_SRC ${MODULE_SRC}
@@ -148,6 +156,7 @@ if (NOT OS_IS_MAC)
 
     # we use QKeyMapper to fix https://github.com/musescore/MuseScore/issues/10181
     set(MODULE_INCLUDE
+        ${MODULE_INCLUDE}
         ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
     )
 endif(NOT OS_IS_MAC)

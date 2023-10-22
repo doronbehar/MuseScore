@@ -25,7 +25,11 @@
 
 #include <QQuickItem>
 
+#ifdef SYSTEM_KDDOCKWIDGETS
+#include <kddockwidgets/private/quick/TabBarQuick_p.h>
+#else
 #include "thirdparty/KDDockWidgets/src/private/quick/TabBarQuick_p.h"
+#endif
 
 namespace mu::dock {
 class DockTabBar : public KDDockWidgets::TabBarQuick

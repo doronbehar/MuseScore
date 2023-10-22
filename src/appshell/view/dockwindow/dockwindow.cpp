@@ -22,11 +22,19 @@
 
 #include "dockwindow.h"
 
+#ifdef SYSTEM_KDDOCKWIDGETS
+#include <kddockwidgets/DockWidgetQuick.h>
+#include <kddockwidgets/LayoutSaver.h>
+#include <kddockwidgets/private/quick/MainWindowQuick_p.h>
+#include <kddockwidgets/private/DockRegistry_p.h>
+#include <kddockwidgets/Config.h>
+#else
 #include "thirdparty/KDDockWidgets/src/DockWidgetQuick.h"
 #include "thirdparty/KDDockWidgets/src/LayoutSaver.h"
 #include "thirdparty/KDDockWidgets/src/private/quick/MainWindowQuick_p.h"
 #include "thirdparty/KDDockWidgets/src/private/DockRegistry_p.h"
 #include "thirdparty/KDDockWidgets/src/Config.h"
+#endif
 
 #include "dockcentralview.h"
 #include "dockpageview.h"

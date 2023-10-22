@@ -25,7 +25,11 @@
 
 #include "internal/dockbase.h"
 
+#ifdef SYSTEM_KDDOCKWIDGETS
+#include <kddockwidgets/private/quick/TitleBarQuick_p.h>
+#else
 #include "thirdparty/KDDockWidgets/src/private/quick/TitleBarQuick_p.h"
+#endif
 
 #include <QtGlobal>
 

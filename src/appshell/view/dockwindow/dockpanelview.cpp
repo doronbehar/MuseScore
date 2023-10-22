@@ -22,8 +22,13 @@
 
 #include "dockpanelview.h"
 
+#ifdef SYSTEM_KDDOCKWIDGETS
+#include <kddockwidgets/DockWidgetQuick.h>
+#include <kddockwidgets/private/Frame_p.h>
+#else
 #include "thirdparty/KDDockWidgets/src/DockWidgetQuick.h"
 #include "thirdparty/KDDockWidgets/src/private/Frame_p.h"
+#endif
 
 #include "types/translatablestring.h"
 

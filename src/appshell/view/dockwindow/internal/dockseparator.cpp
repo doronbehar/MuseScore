@@ -25,9 +25,15 @@
 #include "log.h"
 #include "../docktypes.h"
 
+#ifdef SYSTEM_KDDOCKWIDGETS
+#include <kddockwidgets/private/multisplitter/Rubberband_quick.h>
+#include <kddockwidgets/DockWidgetBase.h>
+#include <kddockwidgets/private/DockRegistry_p.h>
+#else
 #include "thirdparty/KDDockWidgets/src/private/multisplitter/Rubberband_quick.h"
 #include "thirdparty/KDDockWidgets/src/DockWidgetBase.h"
 #include "thirdparty/KDDockWidgets/src/private/DockRegistry_p.h"
+#endif
 
 #include <QTimer>
 

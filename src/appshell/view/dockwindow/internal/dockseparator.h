@@ -25,8 +25,13 @@
 
 #include <QQuickItem>
 
+#ifdef SYSTEM_KDDOCKWIDGETS
+#include <kddockwidgets/private/multisplitter/Separator_p.h>
+#include <kddockwidgets/private/multisplitter/Widget_quick.h>
+#else
 #include "thirdparty/KDDockWidgets/src/private/multisplitter/Separator_p.h"
 #include "thirdparty/KDDockWidgets/src/private/multisplitter/Widget_quick.h"
+#endif
 
 namespace mu::dock {
 class DockSeparator : public QQuickItem, public Layouting::Separator, public Layouting::Widget_quick

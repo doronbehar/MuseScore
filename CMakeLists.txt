@@ -126,6 +126,7 @@ option(MUE_COMPILE_USE_SYSTEM_FREETYPE "Try use system freetype" OFF) # Importan
 option(MUE_COMPILE_USE_SYSTEM_TINYXML "Try use system tinyxml" OFF) # Important for the maintainer of Linux distributions
 option(MUE_COMPILE_USE_SYSTEM_OPUSENC "Try use system libopusenc" OFF) # Important for the maintainer of Linux distributions
 option(MUE_COMPILE_USE_SYSTEM_FLAC "Try use system flac" OFF) # Important for the maintainer of Linux distributions
+option(MUE_COMPILE_USE_SYSTEM_KDDOCKWIDGETS "Try to use system KDDockWidgets" OFF) # Important for the maintainer of Linux distributions
 
 # === Debug ===
 option(MUE_ENABLE_LOGGER_DEBUGLEVEL "Enable logging debug level" ON)
@@ -197,13 +198,15 @@ add_subdirectory(src)
 ###########################################
 # Setup the KDDockWidgets lib
 ###########################################
-if (NOT BUILD_SHARED_LIBS)
-    set(KDDockWidgets_STATIC ON CACHE BOOL "Build static versions of the libraries" FORCE)
-endif(NOT BUILD_SHARED_LIBS)
+if (NOT MUE_COMPILE_USE_SYSTEM_KDDOCKWIDGETS)
+    if (NOT BUILD_SHARED_LIBS)
+        set(KDDockWidgets_STATIC ON CACHE BOOL "Build static versions of the libraries" FORCE)
+    endif(NOT BUILD_SHARED_LIBS)
 
-set(KDDockWidgets_QTQUICK ON CACHE BOOL "Build for QtQuick instead of QtWidgets" FORCE)
-set(KDDockWidgets_EXAMPLES OFF CACHE BOOL "Build the examples" FORCE)
-add_subdirectory(thirdparty/KDDockWidgets)
+    set(KDDockWidgets_QTQUICK ON CACHE BOOL "Build for QtQuick instead of QtWidgets" FORCE)
+    set(KDDockWidgets_EXAMPLES OFF CACHE BOOL "Build the examples" FORCE)
+    add_subdirectory(thirdparty/KDDockWidgets)
+endif()
 
 ###########################################
 # Setup Packaging

@@ -25,7 +25,11 @@
 #include <QQuickItem>
 #include <QApplication>
 
+#ifdef SYSTEM_KDDOCKWIDGETS
+#include <kddockwidgets/private/Frame_p.h>
+#else
 #include "thirdparty/KDDockWidgets/src/private/Frame_p.h"
+#endif
 
 #include "../docktypes.h"
 #include "../dockpanelview.h"

@@ -28,7 +28,11 @@
 
 #include "dockbase.h"
 
+#ifdef SYSTEM_KDDOCKWIDGETS
+#include <kddockwidgets/private/DropIndicatorOverlayInterface_p.h>
+#else
 #include "thirdparty/KDDockWidgets/src/private/DropIndicatorOverlayInterface_p.h"
+#endif
 
 namespace mu::dock {
 class DockPanelView;

@@ -22,9 +22,15 @@
 
 #include "docktoolbarview.h"
 
+#ifdef SYSTEM_KDDOCKWIDGETS
+#include <kddockwidgets/DockWidgetQuick.h>
+#include <kddockwidgets/private/TitleBar_p.h>
+#include <kddockwidgets/private/DragController_p.h>
+#else
 #include "thirdparty/KDDockWidgets/src/DockWidgetQuick.h"
 #include "thirdparty/KDDockWidgets/src/private/TitleBar_p.h"
 #include "thirdparty/KDDockWidgets/src/private/DragController_p.h"
+#endif
 
 #include "log.h"
 #include "docktypes.h"

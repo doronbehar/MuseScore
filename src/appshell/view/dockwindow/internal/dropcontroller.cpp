@@ -32,11 +32,19 @@
 #include "globaltypes.h"
 #include "log.h"
 
+#ifdef SYSTEM_KDDOCKWIDGETS
+#include <kddockwidgets/DockWidgetQuick.h>
+#include <kddockwidgets/MainWindowBase.h>
+#include <kddockwidgets/private/DockRegistry_p.h>
+#include <kddockwidgets/private/DragController_p.h>
+#include <kddockwidgets/private/DropAreaWithCentralFrame_p.h>
+#else
 #include "thirdparty/KDDockWidgets/src/DockWidgetQuick.h"
 #include "thirdparty/KDDockWidgets/src/MainWindowBase.h"
 #include "thirdparty/KDDockWidgets/src/private/DockRegistry_p.h"
 #include "thirdparty/KDDockWidgets/src/private/DragController_p.h"
 #include "thirdparty/KDDockWidgets/src/private/DropAreaWithCentralFrame_p.h"
+#endif
 
 using KDDropLocation = KDDockWidgets::DropIndicatorOverlayInterface::DropLocation;
 

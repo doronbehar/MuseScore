@@ -18,9 +18,20 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-set (DOCK_LIBS
-    kddockwidgets
-)
+if (MUE_COMPILE_USE_SYSTEM_KDDOCKWIDGETS)
+    find_package(KDDockWidgets REQUIRED CONFIG)
+    set (DOCK_LIBS
+        KDAB::kddockwidgets
+    )
+    get_target_property(KDDOCKWIDGETS_INCLUDES KDAB::kddockwidgets INTERFACE_INCLUDE_DIRECTORIES)
+    message(STATUS "kddockwidgets include directories are ${KDDOCKWIDGETS_INCLUDES}")
+    set(DOCK_DEFS "SYSTEM_KDDOCKWIDGETS")
+    set(DOCK_INCLUDES ${KDDOCKWIDGETS_INCLUDES})
+else()
+    set (DOCK_LIBS
+        kddockwidgets
+    )
+endif()
 
 set (DOCKWINDOW_SRC
     ${CMAKE_CURRENT_LIST_DIR}/docksetup.cpp

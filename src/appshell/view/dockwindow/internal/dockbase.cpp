@@ -28,9 +28,15 @@
 
 #include "log.h"
 
+#ifdef SYSTEM_KDDOCKWIDGETS
+#include <kddockwidgets/DockWidgetQuick.h>
+#include <kddockwidgets/private/quick/FrameQuick_p.h>
+#include <kddockwidgets/private/FloatingWindow_p.h>
+#else
 #include "thirdparty/KDDockWidgets/src/DockWidgetQuick.h"
 #include "thirdparty/KDDockWidgets/src/private/quick/FrameQuick_p.h"
 #include "thirdparty/KDDockWidgets/src/private/FloatingWindow_p.h"
+#endif
 
 namespace mu::dock {
 static QSize adjustSizeByConstraints(const QSize& size, const QSize& min, const QSize& max)
