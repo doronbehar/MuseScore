@@ -19,7 +19,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 if (MUE_COMPILE_USE_SYSTEM_KDDOCKWIDGETS)
-    find_package(KDDockWidgets REQUIRED CONFIG)
+    find_package(KDDockWidgets REQUIRED CONFIG 1.7)
     set (DOCK_LIBS
         KDAB::kddockwidgets
     )

@@ -27,7 +27,8 @@
 
 #ifdef SYSTEM_KDDOCKWIDGETS
 #include <kddockwidgets/private/multisplitter/Separator_p.h>
-#include <kddockwidgets/private/multisplitter/Widget_quick.h>
+// Changed header path somewhere between 1.4.95 - 1.7.0
+#include <kddockwidgets/private/multisplitter/Widget_qwidget.h>
 #else
 #include "thirdparty/KDDockWidgets/src/private/multisplitter/Separator_p.h"
 #include "thirdparty/KDDockWidgets/src/private/multisplitter/Widget_quick.h"

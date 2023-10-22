@@ -26,7 +26,8 @@
 #include "internal/dockbase.h"
 
 #ifdef SYSTEM_KDDOCKWIDGETS
-#include <kddockwidgets/private/quick/TitleBarQuick_p.h>
+// Changed header path somewhere between 1.4.95 - 1.7.0
+#include <kddockwidgets/private/TitleBar_p.h>
 #else
 #include "thirdparty/KDDockWidgets/src/private/quick/TitleBarQuick_p.h"
 #endif

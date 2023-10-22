@@ -25,6 +25,7 @@
 #ifdef SYSTEM_KDDOCKWIDGETS
 #include <kddockwidgets/DockWidgetQuick.h>
 #include <kddockwidgets/LayoutSaver.h>
+// TODO: This path has changed, not sure to which
 #include <kddockwidgets/private/quick/MainWindowQuick_p.h>
 #include <kddockwidgets/private/DockRegistry_p.h>
 #include <kddockwidgets/Config.h>

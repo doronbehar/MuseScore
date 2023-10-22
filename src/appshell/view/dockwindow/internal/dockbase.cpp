@@ -29,8 +29,9 @@
 #include "log.h"
 
 #ifdef SYSTEM_KDDOCKWIDGETS
-#include <kddockwidgets/DockWidgetQuick.h>
-#include <kddockwidgets/private/quick/FrameQuick_p.h>
+// Changed header paths somewhere between 1.4.95 - 1.7.0
+#include <kddockwidgets/DockWidget.h>
+#include <kddockwidgets/private/Frame_p.h>
 #include <kddockwidgets/private/FloatingWindow_p.h>
 #else
 #include "thirdparty/KDDockWidgets/src/DockWidgetQuick.h"
